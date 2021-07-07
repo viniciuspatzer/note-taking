@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="scripts/app.js"></script>
     <title>Note Taker Application</title>
-
 </head>
 
 <body>
@@ -24,7 +26,6 @@
     <div class="form-container">
         <h1>Note Taker</h1>
         <h3>Add a New Note:</h3>
-        <div class="message">Hi, I'm a message.</div>
         <form>
             <label for="title">Title
                 <input type="text" id="title" placeholder="Enter a note title.">
@@ -35,44 +36,7 @@
             <input type="submit">
         </form>
     </div>
-    <div class="note-container">
-        <div class="note">
-            <h2 class="note__title">Sample Note Title</h2>
-            <p class="note__body">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis quae ea harum iusto quod
-                officia facilis quia odio debitis incidunt doloribus amet, fugiat voluptatibus libero, necessitatibus,
-                voluptates dolorem veniam labore perferendis odit! Corrupti omnis doloremque, ab esse libero incidunt.
-            </p>
-            <div class="note__btns">
-                <button class="note__btn note__view">View Detail</button>
-                <button class="note__btn note__delete">Delete Note</button>
-            </div>
-        </div>
-        <div class="note">
-            <h2 class="note__title">Sample Note Title</h2>
-            <p class="note__body">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis quae ea harum iusto quod
-                officia facilis quia odio debitis incidunt doloribus amet, fugiat voluptatibus libero, necessitatibus,
-                voluptates dolorem veniam labore perferendis odit! Corrupti omnis doloremque, ab esse libero incidunt.
-            </p>
-            <div class="note__btns">
-                <button class="note__btn note__view">View Detail</button>
-                <button class="note__btn note__delete">Delete Note</button>
-            </div>
-        </div>
-        <div class="note">
-            <h2 class="note__title">Sample Note Title</h2>
-            <p class="note__body">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur veritatis quae ea harum iusto quod
-                officia facilis quia odio debitis incidunt doloribus amet, fugiat voluptatibus libero, necessitatibus,
-                voluptates dolorem veniam labore perferendis odit! Corrupti omnis doloremque, ab esse libero incidunt.
-            </p>
-            <div class="note__btns">
-                <button class="note__btn note__view">View Detail</button>
-                <button class="note__btn note__delete">Delete Note</button>
-            </div>
-        </div>
-    </div>
+    <div class="note-container"></div>
 </body>
 
 </html>

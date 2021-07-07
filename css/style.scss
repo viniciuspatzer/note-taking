@@ -5,7 +5,6 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 // colors
 $primary: #446DF6;
@@ -19,6 +18,7 @@ $boxs: 3px 5px 8px 2px;
 
 // transition
 $transition: all 250ms ease-out;
+
 
 html{
     font-family: 'Poppins', sans-serif;
@@ -50,7 +50,7 @@ body{
     }
 
     .modal{
-        max-width: 700px;
+        min-width: 360px;
         max-height: 80vh;
         overflow: auto;
         background-color: white;
@@ -137,6 +137,7 @@ form{
     label, input, textarea{
         font-family: inherit;
         font-size: inherit;
+        resize: none
     }
 
     [for="title"], [for="note"]{
@@ -182,7 +183,7 @@ form{
 .note-container{
     margin: 2rem auto 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 0.5fr));
     grid-gap: 1.5rem;
 
     .note{
