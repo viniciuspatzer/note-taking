@@ -58,7 +58,7 @@ function addNoteToList(note) {
     const html =
         `
             <div class="note">
-                <span >${note.id}</span>
+                <span hidden>${note.id}</span>
                 <h2 class="note__title">${note.title}</h2>
                 <p class="note__body">${note.body}</p>
                 <div class="note__btns">

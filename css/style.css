@@ -40,7 +40,7 @@ body {
 }
 
 .modal-container .modal {
-  min-width: 360px;
+  min-width: 365px;
   max-height: 80vh;
   overflow: auto;
   background-color: white;
@@ -163,7 +163,7 @@ form [for="title"] input, form [for="title"] textarea, form [for="note"] input, 
 }
 
 form [for="title"] input:focus, form [for="title"] textarea:focus, form [for="note"] input:focus, form [for="note"] textarea:focus {
-  outline: 2px solid #121614;
+  border-color: #121614;
 }
 
 form [type="submit"] {
@@ -180,18 +180,16 @@ form [type="submit"] {
 }
 
 form [type="submit"]:hover, form [type="submit"]:focus {
-  outline: none;
-  -webkit-box-sizing: none;
-          box-sizing: none;
-  border: 3px solid rgba(18, 22, 20, 0.5);
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
 }
 
 .note-container {
   margin: 2rem auto 1rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(280px, 0.5fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(280px, 0.5fr));
+  -ms-grid-columns: (minmax(365px, 0.5fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(365px, 0.5fr));
   grid-gap: 1.5rem;
 }
 
@@ -246,9 +244,19 @@ form [type="submit"]:hover, form [type="submit"]:focus {
           box-shadow: 3px 5px 8px 2px rgba(68, 109, 246, 0.2);
 }
 
+.note-container .note__btns .note__view:hover, .note-container .note__btns .note__viewfocus {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
+}
+
 .note-container .note__btns .note__delete {
   background-color: #E01541;
   -webkit-box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
           box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
+}
+
+.note-container .note__btns .note__delete:hover, .note-container .note__btns .note__deletefocus {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
 }
 /*# sourceMappingURL=style.css.map */

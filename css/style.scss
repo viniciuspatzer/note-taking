@@ -50,7 +50,7 @@ body{
     }
 
     .modal{
-        min-width: 360px;
+        min-width: 365px;
         max-height: 80vh;
         overflow: auto;
         background-color: white;
@@ -157,7 +157,7 @@ form{
             width: 100%;
 
             &:focus{
-                outline: 2px solid $dark;
+                border-color: $dark;
             }
         }
     }
@@ -173,9 +173,7 @@ form{
         transition: $transition;
 
         &:hover, &:focus{
-            outline: none;
-            box-sizing: none;
-            border: 3px solid rgba($dark, .5);
+            filter: brightness(1.1);
         }
     }
 }
@@ -183,7 +181,7 @@ form{
 .note-container{
     margin: 2rem auto 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(365px, 0.5fr));
     grid-gap: 1.5rem;
 
     .note{
@@ -228,11 +226,19 @@ form{
         .note__view{
             background-color: $primary;
             box-shadow: $boxs rgba($primary, .2);
+
+            &:hover, &focus{
+                filter: brightness(1.1);
+            }
         }
 
         .note__delete{
             background-color: $danger;
             box-shadow: $boxs rgba($danger, .2);
+
+            &:hover, &focus{
+                filter: brightness(1.1);
+            }
         }
     }
 }
