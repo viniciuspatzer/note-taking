@@ -41,6 +41,7 @@ body {
 
 .modal-container .modal {
   min-width: 365px;
+  max-width: 600px;
   max-height: 80vh;
   overflow: auto;
   background-color: white;
@@ -185,11 +186,12 @@ form [type="submit"]:hover, form [type="submit"]:focus {
 }
 
 .note-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  max-width: 1000px;
   margin: 2rem auto 1rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(365px, 0.5fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(365px, 0.5fr));
   grid-gap: 1.5rem;
 }
 
@@ -220,6 +222,7 @@ form [type="submit"]:hover, form [type="submit"]:focus {
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
   grid-gap: .5rem;
+  margin-top: auto;
 }
 
 .note-container .note__btns .note__btn {

@@ -1,3 +1,8 @@
+@import "variables";
+
+
+// Resetting
+
 *{
     border: 0;
     margin: 0;
@@ -6,23 +11,11 @@
 }
 
 
-// colors
-$primary: #446DF6;
-$success: #33CA7F;
-$danger: #E01541;
-$dark: #121614;
-$light: #a4b1aa;
-
-// box shadow
-$boxs: 3px 5px 8px 2px;
-
-// transition
-$transition: all 250ms ease-out;
-
-
 html{
     font-family: 'Poppins', sans-serif;
 }
+
+////////////////////////////////////////////////////
 
 body{
     display: grid;
@@ -51,6 +44,7 @@ body{
 
     .modal{
         min-width: 365px;
+        max-width: 600px;
         max-height: 80vh;
         overflow: auto;
         background-color: white;
@@ -179,9 +173,10 @@ form{
 }
 
 .note-container{
+    display: flex;
+    justify-items: center;
+    max-width: 1000px;
     margin: 2rem auto 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(365px, 0.5fr));
     grid-gap: 1.5rem;
 
     .note{
@@ -208,6 +203,7 @@ form{
         display: grid;
         grid-template-columns: auto auto;
         grid-gap: .5rem;
+        margin-top: auto;
 
         .note__btn{
             font-family: inherit;
