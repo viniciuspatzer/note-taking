@@ -1,7 +1,5 @@
 @import "variables";
-
-
-// Resetting
+@import "switcher-theme";
 
 *{
     border: 0;
@@ -10,16 +8,14 @@
     box-sizing: border-box;
 }
 
-
 html{
     font-family: 'Poppins', sans-serif;
 }
 
-////////////////////////////////////////////////////
-
 body{
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 1920px;
     padding: 2rem;
     color: $dark;
 }
@@ -36,6 +32,7 @@ body{
     opacity: 0;
     pointer-events: none;
     transition: $transition;
+    z-index: 999;
 
     &.active{
         opacity: 1;
@@ -51,12 +48,18 @@ body{
         border: 3px solid $dark;
         padding: 2rem;
         position: relative;
+        word-break: break-all;
         
         .modal__title{
             font-size: 2rem;
             line-height: 1.2;
             margin-bottom: 1rem;
             max-width: 85%;
+            color: $dark;
+        }
+
+        .modal__body{
+            color: $dark;
         }
 
         .modal__btn{
@@ -165,6 +168,7 @@ form{
         padding: .5rem;
         cursor: pointer;
         transition: $transition;
+        -webkit-appearance: none;
 
         &:hover, &:focus{
             filter: brightness(1.1);
@@ -173,68 +177,82 @@ form{
 }
 
 .note-container{
-    display: flex;
-    justify-items: center;
-    max-width: 1000px;
-    margin: 2rem auto 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
     grid-gap: 1.5rem;
+    margin: 1rem 0;
+
+    @media screen and (max-width: 768px){
+        .note-container{
+            grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+        }
+    }
 
     .note{
-        border: 3px solid rgba($primary, .2);
+        display: flex;
+        flex-direction: column;
+        border: 3px solid rgba($dark, .2);
         padding: 1.5rem;
         transition: $transition;
-    }
+        word-break: break-all;
+        background-color: white;
 
-    .note__title{
-        font-size: 2rem;
-        margin-bottom: .5rem;
-    }
-
-    .note__body{
-        overflow: hidden;
-        max-height: 8rem;
-        -webkit-box-orient: vertical;
-        display: -webkit-box;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 4;
-    }
-
-    .note__btns{
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: .5rem;
-        margin-top: auto;
-
-        .note__btn{
-            font-family: inherit;
-            font-size: inherit;
-            padding: .5rem 1rem;
-            margin-top: 1rem;
-            color: white;
-            cursor: pointer;
-            transition: $transition;
-
-            &:focus, &:hover{
-                box-sizing: none;
+        .note__title{
+            font-size: 2rem;
+            margin-bottom: .5rem;
+            color: $dark;
+        }
+    
+        .note__body{
+            overflow: hidden;
+            max-height: 8rem;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            color: $dark;
+        }
+    
+        .note__btns{
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: .5rem;
+            margin-top: auto;
+    
+            .note__btn{
+                font-family: inherit;
+                font-size: inherit;
+                padding: .5rem 1rem;
+                margin-top: 1.5rem;
+                color: white;
+                cursor: pointer;
+                transition: $transition;
+                white-space: nowrap;
+    
+                &:focus, &:hover{
+                    box-sizing: none;
+                    filter: brightness(1.1);
+                }
+            }
+    
+            .note__view{
+                background-color: $primary;
+                box-shadow: $boxs rgba($primary, .2);
+            }
+    
+            .note__delete{
+                background-color: $danger;
+                box-shadow: $boxs rgba($danger, .2);
             }
         }
+    }
+}
 
-        .note__view{
-            background-color: $primary;
-            box-shadow: $boxs rgba($primary, .2);
 
-            &:hover, &focus{
-                filter: brightness(1.1);
-            }
-        }
+// Medias Queries
 
-        .note__delete{
-            background-color: $danger;
-            box-shadow: $boxs rgba($danger, .2);
-
-            &:hover, &focus{
-                filter: brightness(1.1);
-            }
-        }
+@media screen and (max-width: 768px){
+    .note-container{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }

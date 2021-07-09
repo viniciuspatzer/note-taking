@@ -1,3 +1,60 @@
+.toggle-control {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.toggle-control input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.toggle-control input:checked ~ .control {
+  background-color: #33ca7f;
+}
+
+.toggle-control input:checked ~ .control:after {
+  left: 30px;
+}
+
+.toggle-control .control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 50px;
+  border-radius: 12.5px;
+  background-color: darkgray;
+  -webkit-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in;
+}
+
+.toggle-control .control:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 12.5px;
+  background: white;
+  -webkit-transition: left 0.15s ease-in;
+  transition: left 0.15s ease-in;
+}
+
 * {
   border: 0;
   margin: 0;
@@ -11,9 +68,14 @@ html {
 }
 
 body {
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 1920px;
   padding: 2rem;
   color: #121614;
 }
@@ -32,6 +94,7 @@ body {
   pointer-events: none;
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
+  z-index: 999;
 }
 
 .modal-container.active {
@@ -48,6 +111,7 @@ body {
   border: 3px solid #121614;
   padding: 2rem;
   position: relative;
+  word-break: break-all;
 }
 
 .modal-container .modal .modal__title {
@@ -55,6 +119,11 @@ body {
   line-height: 1.2;
   margin-bottom: 1rem;
   max-width: 85%;
+  color: #121614;
+}
+
+.modal-container .modal .modal__body {
+  color: #121614;
 }
 
 .modal-container .modal .modal__btn {
@@ -78,8 +147,8 @@ body {
 
 .modal-container .modal .modal__btn:hover, .modal-container .modal .modal__btn:focus {
   outline: none;
-  border: 3px solid #a4b1aa;
-  color: #a4b1aa;
+  border: 3px solid #A4B1AA;
+  color: #A4B1AA;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -157,7 +226,7 @@ form [for="title"] input, form [for="title"] textarea, form [for="note"] input, 
   -webkit-box-flex: 1;
       -ms-flex: 1 1 80%;
           flex: 1 1 80%;
-  border: 3px solid #a4b1aa;
+  border: 3px solid #A4B1AA;
   padding: .5rem;
   color: #121614;
   width: 100%;
@@ -178,6 +247,7 @@ form [type="submit"] {
   cursor: pointer;
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
+  -webkit-appearance: none;
 }
 
 form [type="submit"]:hover, form [type="submit"]:focus {
@@ -186,37 +256,54 @@ form [type="submit"]:hover, form [type="submit"]:focus {
 }
 
 .note-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-items: center;
-  max-width: 1000px;
-  margin: 2rem auto 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 0.5fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
   grid-gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .note-container .note-container {
+    -ms-grid-columns: (minmax(300px, 0.5fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+  }
 }
 
 .note-container .note {
-  border: 3px solid rgba(68, 109, 246, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid rgba(18, 22, 20, 0.2);
   padding: 1.5rem;
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
+  word-break: break-all;
+  background-color: white;
 }
 
-.note-container .note__title {
+.note-container .note .note__title {
   font-size: 2rem;
   margin-bottom: .5rem;
+  color: #121614;
 }
 
-.note-container .note__body {
+.note-container .note .note__body {
   overflow: hidden;
   max-height: 8rem;
   -webkit-box-orient: vertical;
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
+  color: #121614;
 }
 
-.note-container .note__btns {
+.note-container .note .note__btns {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
@@ -225,41 +312,41 @@ form [type="submit"]:hover, form [type="submit"]:focus {
   margin-top: auto;
 }
 
-.note-container .note__btns .note__btn {
+.note-container .note .note__btns .note__btn {
   font-family: inherit;
   font-size: inherit;
   padding: .5rem 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   color: white;
   cursor: pointer;
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
+  white-space: nowrap;
 }
 
-.note-container .note__btns .note__btn:focus, .note-container .note__btns .note__btn:hover {
+.note-container .note .note__btns .note__btn:focus, .note-container .note .note__btns .note__btn:hover {
   -webkit-box-sizing: none;
           box-sizing: none;
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
 }
 
-.note-container .note__btns .note__view {
+.note-container .note .note__btns .note__view {
   background-color: #446DF6;
   -webkit-box-shadow: 3px 5px 8px 2px rgba(68, 109, 246, 0.2);
           box-shadow: 3px 5px 8px 2px rgba(68, 109, 246, 0.2);
 }
 
-.note-container .note__btns .note__view:hover, .note-container .note__btns .note__viewfocus {
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
-}
-
-.note-container .note__btns .note__delete {
+.note-container .note .note__btns .note__delete {
   background-color: #E01541;
   -webkit-box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
           box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
 }
 
-.note-container .note__btns .note__delete:hover, .note-container .note__btns .note__deletefocus {
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
+@media screen and (max-width: 768px) {
+  .note-container {
+    -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 /*# sourceMappingURL=style.css.map */
