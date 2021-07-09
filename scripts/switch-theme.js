@@ -4,20 +4,15 @@ const body = document.querySelector('body');
 const checkbox = document.querySelector('input[type="checkbox"]');
 
 
-const changeColors = colors => {
+checkbox.addEventListener('change', ({ target }) => {
 
-    if (colors === 'darkMode') {
+    if (target.checked) {
         body.style.backgroundColor = '#121614';
         body.style.color = '#FFFFFF';
     }
 
-    else if (colors === 'defaultMode') {
+    else {
         body.style.backgroundColor = '#FFFFFF';
         body.style.color = '#121614';
     }
-
-};
-
-checkbox.addEventListener('change', ({ target }) => {
-    target.checked ? changeColors('darkMode') : changeColors('defaultMode');
 });

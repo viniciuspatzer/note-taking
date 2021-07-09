@@ -63,10 +63,6 @@
           box-sizing: border-box;
 }
 
-html {
-  font-family: 'Poppins', sans-serif;
-}
-
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,15 +73,13 @@ body {
           flex-direction: column;
   max-width: 1920px;
   padding: 2rem;
+  font-family: 'Poppins', sans-serif;
   color: #121614;
 }
 
 .modal-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: rgba(18, 22, 20, 0.2);
   display: -ms-grid;
   display: grid;
@@ -139,8 +133,6 @@ body {
   border: 3px solid #121614;
   border-radius: 50%;
   background-color: white;
-  -webkit-box-shadow: 3px 5px 8px 2px rgba(18, 22, 20, 0.2);
-          box-shadow: 3px 5px 8px 2px rgba(18, 22, 20, 0.2);
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
 }
@@ -149,8 +141,6 @@ body {
   outline: none;
   border: 3px solid #A4B1AA;
   color: #A4B1AA;
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 
 .form-container {
@@ -177,20 +167,14 @@ body {
 
 .form-container .message.success-message {
   background-color: #33CA7F;
-  -webkit-box-shadow: 2px 4px 7px 2px rgba(51, 202, 127, 0.2);
-          box-shadow: 2px 4px 7px 2px rgba(51, 202, 127, 0.2);
 }
 
 .form-container .message.remove-message {
   background-color: #446DF6;
-  -webkit-box-shadow: 2px 4px 7px 2px rgba(68, 109, 246, 0.2);
-          box-shadow: 2px 4px 7px 2px rgba(68, 109, 246, 0.2);
 }
 
 .form-container .message.alert-message {
   background-color: #E01541;
-  -webkit-box-shadow: 2px 4px 7px 2px rgba(224, 21, 65, 0.2);
-          box-shadow: 2px 4px 7px 2px rgba(224, 21, 65, 0.2);
 }
 
 form {
@@ -238,8 +222,6 @@ form [for="title"] input:focus, form [for="title"] textarea:focus, form [for="no
 
 form [type="submit"] {
   background-color: #33CA7F;
-  -webkit-box-shadow: 3px 5px 8px 2px rgba(51, 202, 127, 0.2);
-          box-shadow: 3px 5px 8px 2px rgba(51, 202, 127, 0.2);
   border: 3px solid transparent;
   font-size: 1.3rem;
   color: white;
@@ -333,14 +315,10 @@ form [type="submit"]:hover, form [type="submit"]:focus {
 
 .note-container .note .note__btns .note__view {
   background-color: #446DF6;
-  -webkit-box-shadow: 3px 5px 8px 2px rgba(68, 109, 246, 0.2);
-          box-shadow: 3px 5px 8px 2px rgba(68, 109, 246, 0.2);
 }
 
 .note-container .note .note__btns .note__delete {
   background-color: #E01541;
-  -webkit-box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
-          box-shadow: 3px 5px 8px 2px rgba(224, 21, 65, 0.2);
 }
 
 @media screen and (max-width: 768px) {
