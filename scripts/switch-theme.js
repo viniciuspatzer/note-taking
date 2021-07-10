@@ -6,13 +6,9 @@ const checkbox = document.querySelector('input[type="checkbox"]');
 
 checkbox.addEventListener('change', ({ target }) => {
 
-    if (target.checked) {
-        body.style.backgroundColor = '#121614';
-        body.style.color = '#FFFFFF';
-    }
+    const bodyBgColor = target.checked ? '#121614' : '#FFFFFF';
+    const bodyColor = target.checked ? '#FFFFFF' : '#121614';
 
-    else {
-        body.style.backgroundColor = '#FFFFFF';
-        body.style.color = '#121614';
-    }
+    body.style.backgroundColor = bodyBgColor;
+    body.style.color = bodyColor;
 });
