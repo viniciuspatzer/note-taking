@@ -48,8 +48,6 @@ function removeNote(id) {
 }
 
 
-
-
 /****** UI Updates ******/
 /************************/
 
